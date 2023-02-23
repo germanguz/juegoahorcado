@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+    <link rel="shortcut icon" href="imagenes/joystick-48.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="imagenes/Logo.png" alt="logo de Alura">
+        <!-- para tactiles -->
+        <p class="msgTactil" id="msgTactilId">Una tecla por vez y presionar 'verificar'</p>
+    </header>
+
+    <main>
+    <!-- BOTONES PRINCIPALES -->
+        <div id="ocultarBotonesPrincipales">
+            <button type="button" class="boton-iniciar" onclick="empezar()">Iniciar juego</button>
+            <button type="button" class="boton-agregar" onclick="mostrarAgregarPalabra()">Agregar nueva palabra</button>
+        </div>
+
+    <!-- CANVAS -->
+        <div class="espacioCanvas" id="mostrarCanvas">
+            <div class="canvas" id="canvasInput">
+                <canvas width="1000px" height="520px" id="pizarra">
+                </canvas>
+                <!-- para tactiles -->
+                <div class="InputBotonTactil" id="mostrarInputBotonTactil">
+                    <input class="entradaTactil" type="text" id="inputTactil" maxlength="1">
+                    <button class="verifBut" type="button" onclick="tomarLetra()">Verificar</button>
+                </div>
+            </div>
+            <div class="botonesAbajo">
+                <button type="button" class="botonAzul" onclick="reiniciar()">Nuevo juego</button>
+                <button type="button" class="botonGris" onclick="volverInicioDesdeCanvas()">Desistir</button>
+            </div>
+        </div>
+
+    <!-- AGREGAR PALABRA -->
+        <div class="espacioAgregarPalabra" id="mostrarAgregarPalabra">
+            <div class="inputAgregarPalabra" id="mostrarInputAgregar">
+                <input class="inputTexto" type="text" id="textoEscrito" minlength="3" maxlength="8"
+                    placeholder="Escriba aquí..." pattern="^[A-Za-z]+$" title="Solo letras sin acentos ni espacios">
+            </div>
+            <div class="requisito" id="mostrarRequisito">
+                <img src="imagenes/!.png" alt="signo exclamacion">
+                <label>Máx. 8 letras sin acentos ni espacios</label>
+            </div>
+            <div class="botonesAbajo" id="mostrarBotonesAgregar">
+                <button type="submit" class="botonAzul" id="btnGuardar">Guardar y empezar</button>
+                <button type="submit" class="botonGris" onclick="volverInicioDesdeGuardarPalabra()">Cancelar</button>
+            </div>
+            <!-- (puedo ejecutar la fc con onclick="..." desde acá, o llamar el id desde el script.js)-->
+        </div>
+    </main>
+
+    <footer>
+        <div class="pie">
+            &copy; Germán Guzmán - Alura-ONE - 2023
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
